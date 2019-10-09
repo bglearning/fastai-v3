@@ -29,7 +29,14 @@ function analyze() {
   xhr.onload = function(e) {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
-      el("result-label").innerHTML = `Result = ${response["result"]}`;
+      
+      if (response["result"] === "momo") {
+          var out = "Momo! :)"
+      } else {
+          var out = "Not Momo :( "
+      }
+
+      el("result-label").innerHTML = out;
     }
     el("analyze-button").innerHTML = "Analyze";
   };
